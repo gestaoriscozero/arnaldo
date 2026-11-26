@@ -107,6 +107,10 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
 .slide.sol .price{background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(167,139,250,.10));box-shadow:0 0 0 2px #a78bfa,0 24px 80px rgba(167,139,250,.35)}
 .slide.sol [style*="#1d1a3a"]{background:rgba(167,139,250,.18)!important;border-color:rgba(196,181,253,.35)!important;color:#ddd6fe!important}
 .slide.sol .phone{box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 0 1px rgba(196,181,253,.25)}
+.steps-start{list-style:none;counter-reset:st;margin:12px 0 0;padding:0;display:grid;gap:12px}
+.steps-start li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;column-gap:12px}
+.steps-start li::before{content:counter(st);grid-row:span 2;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:800;background:rgba(167,139,250,.22);color:#ddd6fe}
+.steps-start b{font-weight:700;color:var(--tx)}.steps-start span{color:var(--mut);font-size:14px}
 </style>
 
 <header class="top">
@@ -280,10 +284,18 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
   <div class="card price">
     <div class="lab c-brand">GRZ completo · tudo incluso</div>
     <div class="pv n"><small>R$</small>99,90<small>/mês</small></div>
-    <p class="lead" style="margin:6px auto 0">Inclui o site, a reorganização do perfil, fotos, link de avaliação e respostas.</p>
+    <p class="lead" style="margin:6px auto 0">Inclui a criação do site, a reorganização do perfil, fotos, link de avaliação e respostas.</p>
     <div class="item ok" style="text-align:left;margin-top:22px"><span class="ic">✓</span><div><h4>Sem contrato de fidelidade</h4><p>Quer parar? Avisa no próprio app e para de pagar. Sem taxa, sem multa, sem letra miúda.</p></div></div>
   </div>
   <p class="lead" style="text-align:center;margin:22px auto 0">Menos de R$ 3,40 por dia. Uma única consulta nova por mês já paga o investimento.</p>
+  <div class="card" style="max-width:560px;margin:22px auto 0;text-align:left">
+    <div class="lab">Como começa</div>
+    <ol class="steps-start">
+      <li><b>Pagamento confirmado, o trabalho começa.</b><span>No mesmo dia o GRZ já começa a reorganizar o perfil.</span></li>
+      <li><b>Em 2 dias o site fica pronto.</b><span>Ele é enviado para a sua aprovação antes de ir ao ar.</span></li>
+      <li><b>Domínio e hospedagem por 2 anos: R$ 220.</b><span>Pagamento único, feito só na aprovação do site.</span></li>
+    </ol>
+  </div>
 </div></section>
 
 <section class="slide sol" id="s10"><div class="in" style="text-align:center">
