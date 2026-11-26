@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<title>Diagnóstico Google · Dr. Arnaldo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{color-scheme:dark;--bg:#0b0e15;--card:#151a24;--card2:#1b2130;--line:#283040;--tx:#f3f5f9;--mut:#9aa3b5;--dim:#6b7387;--brand:#7b6cf6;--brand2:#a99ff9;--ok:#22c55e;--warn:#f97316;--bad:#ef4444;--badbg:#2a1719;--okbg:#122a1c;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));background:rgba(11,14,21,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.bot{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#3fd3ff,#1290d8);display:grid;place-items:center}
+.logo small{font-weight:500;font-size:12px;color:var(--mut);letter-spacing:0}
+.dots{display:flex;gap:6px}.dots a{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .3s var(--ease),transform .3s var(--ease)}.dots a.on{background:var(--brand);transform:scale(1.3)}
+.slide{min-height:calc(100svh - 51px);scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:48px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid #141925}
+.in{width:100%;max-width:1040px;margin:0 auto}
+.lab{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.n{font-variant-numeric:tabular-nums}
+h1{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.05}
+h2{font-size:clamp(26px,4.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,32px)}
+.grid{display:grid;gap:16px;margin-top:28px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.big{font-size:clamp(56px,10vw,112px);font-weight:800;letter-spacing:-.05em;line-height:.95}
+.c-ok{color:var(--ok)}.c-warn{color:var(--warn)}.c-bad{color:var(--bad)}.c-brand{color:var(--brand2)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid}
+.pill.bad{color:#ff8a8a;border-color:#5a2328;background:var(--badbg)}.pill.warn{color:#ffb27a;border-color:#5a3a1c;background:#2a1d12}.pill.ok{color:#6ee79a;border-color:#1f5a35;background:var(--okbg)}
+.cover .meta{margin-top:24px;color:var(--mut);font-size:15px}
+.cover .tag{color:var(--brand2);font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;margin-bottom:18px}
+.hero-quote{font-size:clamp(30px,5.2vw,58px);font-weight:800;letter-spacing:-.035em;line-height:1.1}
+.hero-quote .b{color:var(--bad)}
+/* mapa */
+.map{position:relative;border-radius:18px;overflow:hidden;background:#1a2130;aspect-ratio:4/3;border:1px solid var(--line)}
+.map svg{width:100%;height:100%;display:block}
+.res{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--card2);border:1px solid var(--line);margin-top:8px;font-size:15px}
+.res b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--brand);font-size:13px;flex:none}
+.res.hid{opacity:.45;border-style:dashed}.res.me{border-color:var(--bad);background:var(--badbg);opacity:1}.res.me b{background:var(--bad)}
+.fold{text-align:center;color:var(--dim);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 0;border-top:1px dashed var(--line);margin-top:12px}
+/* barras */
+.bars{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.bar{display:grid;grid-template-columns:minmax(110px,180px) 1fr;gap:12px;align-items:center;font-size:14px}
+.bar .t{height:30px;border-radius:8px;background:#0f131c;position:relative}
+.bar .f{height:100%;border-radius:8px;background:#3a4256;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-weight:700;font-size:13px;min-width:34px;transform-origin:left;transition:transform 1s var(--ease)}
+.bar.me .f{background:var(--bad);justify-content:flex-start;padding-left:8px}
+.bar.me .nm{color:#ff8a8a;font-weight:700}
+.bars.pre .f{transform:scaleX(0)}
+.rev{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.stars{color:#f5c542;letter-spacing:2px;font-size:14px}
+.rev q{font-size:16px;font-weight:500}
+.noans{font-size:12px;font-weight:700;color:#ff8a8a;letter-spacing:.08em;text-transform:uppercase;display:flex;gap:6px;align-items:center;margin-top:auto}
+.item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:16px;border:1px solid}
+.item.bad{background:var(--badbg);border-color:#6b2a2f}.item.ok{background:var(--okbg);border-color:#1f6a3b}.item.warn{background:#24190f;border-color:#6a4220}
+.ic{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:14px;color:#0b0e15}
+.bad .ic{background:var(--bad)}.ok .ic{background:var(--ok)}.warn .ic{background:var(--warn)}
+.item h4{font-size:17px;font-weight:600}.item p{font-size:14px;color:var(--mut);margin-top:2px}
+.ring{width:190px;height:190px;position:relative;margin:0 auto}
+.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring .v{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .v b{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1}.ring .v span{font-size:12px;font-weight:700;letter-spacing:.18em}
+.arc{transition:stroke-dashoffset 1.4s var(--ease)}
+.plan{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;background:var(--card2);border:1px solid var(--line);border-radius:16px}
+.plan .k{width:34px;height:34px;border-radius:10px;background:#2a2550;color:var(--brand2);display:grid;place-items:center;font-weight:800}
+.plan h4{font-size:16px;font-weight:600}.plan p{font-size:13px;color:var(--mut)}
+.proj{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);margin-top:8px}
+.proj .arrow{color:var(--brand2);font-size:36px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;font-weight:700;padding:16px 26px;border-radius:14px;font-size:17px;margin-top:28px}
+.note{font-size:12px;color:var(--dim);margin-top:14px}
+.stagger>*{transition:transform .7s var(--ease)}
+@media (max-width:520px){.bar{grid-template-columns:1fr;gap:4px}.plan{grid-template-columns:auto 1fr}.plan .pill{grid-column:2;justify-self:start}.ring{width:160px;height:160px}.ring .v b{font-size:52px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.bars.pre .f{transform:none}}
+</style>
+
+<header class="top">
+  <div class="logo"><span class="bot"><svg width="16" height="12" viewBox="0 0 16 12"><rect x="1" y="1" width="14" height="10" rx="5" fill="#0b2a44"/><circle cx="5.5" cy="5.5" r="1.4" fill="#5ff"/><circle cx="10.5" cy="5.5" r="1.4" fill="#5ff"/><path d="M5.5 8.3q2.5 1.4 5 0" stroke="#5ff" stroke-width="1" fill="none"/></svg></span>GRZ <small>Gestão Risco Zero</small></div>
+  <nav class="dots" aria-label="Slides"></nav>
+</header>
+
+<main>
+<section class="slide cover" id="s1"><div class="in">
+  <div class="tag">Diagnóstico Google · 26/11/2026</div>
+  <h1>Dr. Arnaldo de Jesus<br><span style="color:var(--mut)">Instituto de Cirurgia da Mão</span></h1>
+  <p class="meta">R. Mal. Floriano Peixoto, 697 · Centro · Juiz de Fora/MG</p>
+  <p class="meta">Preparado para Selma · por KeepCoding</p>
+</div></section>
+
+<section class="slide" id="s2"><div class="in">
+  <div class="lab">A conclusão em uma frase</div>
+  <p class="hero-quote">Os pacientes amam o Dr. Arnaldo.<br><span class="b">Quem procura no Google não encontra.</span></p>
+  <div class="grid g3">
+    <div class="card"><div class="lab">Nota</div><div class="big c-ok n">4.8</div></div>
+    <div class="card"><div class="lab">Posição na busca</div><div class="big c-bad n">#10</div></div>
+    <div class="card"><div class="lab">Avaliações respondidas</div><div class="big c-bad n">0%</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="s3"><div class="in">
+  <span class="pill bad">Crítico</span>
+  <h2 style="margin-top:14px">10º lugar. O Google só mostra 3.</h2>
+  <p class="lead">Na busca “Orthopedic surgeon Juiz de Fora”, o mapa mostra 3 médicos. Para chegar ao Dr. Arnaldo, o paciente precisa clicar em “mais resultados” e rolar até o 10º. Quase ninguém faz isso.</p>
+  <div class="grid g2">
+    <div class="map" aria-hidden="true"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#1a2130"/><g stroke="#252d3f" stroke-width="10" fill="none"><path d="M-10 90 L410 120"/><path d="M-10 220 L410 190"/><path d="M120 -10 L150 310"/><path d="M290 -10 L260 310"/></g><g stroke="#222a3a" stroke-width="4"><path d="M-10 160 L410 150"/><path d="M60 -10 L80 310"/><path d="M350 -10 L340 310"/></g><g font-family="Inter,sans-serif" font-weight="700" font-size="14" text-anchor="middle"><g transform="translate(110 70)"><path d="M0 0c-12-14-14-20-14-26a14 14 0 1 1 28 0c0 6-2 12-14 26z" fill="#7b6cf6"/><text y="-21" fill="#fff">1</text></g><g transform="translate(230 110)"><path d="M0 0c-12-14-14-20-14-26a14 14 0 1 1 28 0c0 6-2 12-14 26z" fill="#7b6cf6"/><text y="-21" fill="#fff">2</text></g><g transform="translate(320 200)"><path d="M0 0c-12-14-14-20-14-26a14 14 0 1 1 28 0c0 6-2 12-14 26z" fill="#7b6cf6"/><text y="-21" fill="#fff">3</text></g><g transform="translate(180 260)" opacity=".9"><circle r="12" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3"/><text y="5" fill="#ef4444" font-size="12">?</text></g></g></svg></div>
+    <div>
+      <div class="res"><b>1</b>Concorrente</div>
+      <div class="res"><b>2</b>Concorrente</div>
+      <div class="res"><b>3</b>Concorrente</div>
+      <div class="fold">— o que o paciente vê termina aqui —</div>
+      <div class="res hid"><b style="background:#3a4256">4</b>…</div>
+      <div class="res hid"><b style="background:#3a4256">9</b>…</div>
+      <div class="res me"><b>10</b>Dr. Arnaldo de Jesus</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="slide" id="s4"><div class="in">
+  <span class="pill bad">Crítico</span>
+  <h2 style="margin-top:14px">Poucas avaliações perto dos vizinhos</h2>
+  <p class="lead">Médicos num raio de 2 km. O Google usa a quantidade de avaliações para decidir quem aparece primeiro.</p>
+  <div class="card" style="margin-top:28px">
+    <div class="lab">Número de avaliações no Google</div>
+    <div class="bars" id="bars"></div>
+  </div>
+</div></section>
+
+<section class="slide" id="s5"><div class="in">
+  <span class="pill bad">Crítico</span>
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;margin-top:14px">
+    <div class="big c-bad n">0%</div>
+    <div><h2 style="margin:0">das avaliações respondidas</h2><p class="lead">10 das 10 mais recentes sem resposta — todas com 5 estrelas.</p></div>
+  </div>
+  <div class="grid g3 stagger">
+    <div class="rev"><span class="stars">★★★★★</span><q>Fiz duas cirurgias com ele e foram muito bem sucedidas!</q><span class="noans">✕ Sem resposta</span></div>
+    <div class="rev"><span class="stars">★★★★★</span><q>Em menos de 15 dias operei de Síndrome de Túnel de Carpo e fiquei bem.</q><span class="noans">✕ Sem resposta</span></div>
+    <div class="rev"><span class="stars">★★★★★</span><q>sofri 8 anos com formigamento agora livre</q><span class="noans">✕ Sem resposta</span></div>
+  </div>
+  <p class="lead" style="margin-top:22px">Quem lê vê elogios sem retorno. E o Google valoriza perfis que conversam com os pacientes.</p>
+</div></section>
+
+<section class="slide" id="s6"><div class="in">
+  <span class="pill warn">Atenção</span>
+  <h2 style="margin-top:14px">O paciente encontra, mas não tem por onde chamar</h2>
+  <div class="grid g2" style="gap:12px">
+    <div class="item bad"><span class="ic">✕</span><div><h4>Sem site</h4><p>Nenhum link para saber mais sobre o médico e os tratamentos.</p></div></div>
+    <div class="item bad"><span class="ic">✕</span><div><h4>Sem WhatsApp no perfil</h4><p>O jeito mais comum de marcar consulta hoje não está lá.</p></div></div>
+    <div class="item bad" style="grid-column:1/-1"><span class="ic">✕</span><div><h4>Categoria genérica e em inglês: “Orthopedic surgeon”</h4><p>O Instituto é especialista em cirurgia da mão, mas o Google o classifica como ortopedista genérico — e compete com todos os ortopedistas da cidade.</p></div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="s7"><div class="in">
+  <span class="pill warn">Atenção</span>
+  <h2 style="margin-top:14px">O perfil cresce devagar demais</h2>
+  <div class="grid g2">
+    <div class="card"><div class="lab">Ritmo de avaliações</div><div class="big c-warn n">0,3<span style="font-size:.4em;color:var(--mut)">/mês</span></div><p class="lead" style="margin-top:10px">Menos de uma avaliação a cada 3 meses.</p></div>
+    <div class="card"><div class="lab">Idade do perfil <span style="color:var(--warn)">· estimativa</span></div><div class="big c-brand n">~7<span style="font-size:.4em;color:var(--mut)"> anos</span></div><p class="lead" style="margin-top:10px">Desde cerca de 2019. Nesse ritmo, alcançar o líder (439) levaria mais de um século.</p></div>
+  </div>
+  <p class="note">Estimativa: 25 avaliações ÷ 0,3 por mês ≈ 83 meses. O Google não mostra a data de criação do perfil.</p>
+</div></section>
+
+<section class="slide" id="s8"><div class="in">
+  <span class="pill ok">O que já está bom</span>
+  <div class="grid g2" style="align-items:center">
+    <div>
+      <h2 style="margin-top:14px">A base é forte. Falta ser encontrado.</h2>
+      <p class="lead">O GRZ dá nota 81 aos fundamentos do perfil. O cadastro está bem feito — o problema é visibilidade, não qualidade.</p>
+      <div class="grid g2" style="gap:10px;margin-top:20px">
+        <div class="item ok"><span class="ic">✓</span><div><h4>Telefone</h4></div></div>
+        <div class="item ok"><span class="ic">✓</span><div><h4>Endereço</h4></div></div>
+        <div class="item ok"><span class="ic">✓</span><div><h4>Horário</h4></div></div>
+        <div class="item ok"><span class="ic">✓</span><div><h4>10 fotos</h4></div></div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="lab">Score GRZ</div>
+      <div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" stroke="#232a39" stroke-width="10" fill="none"/><circle class="arc" id="arc" cx="60" cy="60" r="50" stroke="#22c55e" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="59.7"/></svg><div class="v"><b class="c-ok n">81</b><span class="c-ok">FORTE</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="slide" id="s9"><div class="in">
+  <div class="lab">Plano de ação</div>
+  <h2>4 passos. A maior parte leva minutos.</h2>
+  <div class="grid" style="gap:10px">
+    <div class="plan"><span class="k">1</span><div><h4>Trocar a categoria principal</h4><p>5 min</p></div><span class="pill bad">Impacto alto</span></div>
+    <div class="plan"><span class="k">2</span><div><h4>Responder as avaliações sem resposta</h4><p>20 min</p></div><span class="pill bad">Impacto alto</span></div>
+    <div class="plan"><span class="k">3</span><div><h4>Adicionar site e WhatsApp</h4><p>5 min</p></div><span class="pill warn">Impacto médio</span></div>
+    <div class="plan"><span class="k">4</span><div><h4>Pedir avaliação a 20 pacientes</h4><p>contínuo</p></div><span class="pill bad">Impacto alto</span></div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="lab" style="text-align:center">Projeção do GRZ ao concluir tudo</div>
+    <div class="proj"><span class="big c-ok n" style="font-size:clamp(52px,8vw,88px)">81</span><span class="arrow">→</span><span class="big c-brand n" style="font-size:clamp(52px,8vw,88px)">100</span></div>
+  </div>
+</div></section>
+
+<section class="slide" id="s10"><div class="in" style="text-align:center">
+  <div class="logo" style="justify-content:center;font-size:40px"><span class="bot" style="width:44px;height:44px"><svg width="26" height="20" viewBox="0 0 16 12"><rect x="1" y="1" width="14" height="10" rx="5" fill="#0b2a44"/><circle cx="5.5" cy="5.5" r="1.4" fill="#5ff"/><circle cx="10.5" cy="5.5" r="1.4" fill="#5ff"/><path d="M5.5 8.3q2.5 1.4 5 0" stroke="#5ff" stroke-width="1" fill="none"/></svg></span>GRZ</div>
+  <p class="lead" style="margin:12px auto 0">Gestão Risco Zero · KeepCoding</p>
+  <p class="hero-quote" style="font-size:clamp(24px,4vw,40px);margin-top:36px">Os pacientes já confiam.<br><span class="c-brand">Agora é o Google precisar mostrar.</span></p>
+  <span class="cta">Vamos começar pelo passo 1 →</span>
+  <p class="note">Dados medidos pelo GRZ em 26/11/2026.</p>
+</div></section>
+</main>
+
+<script>
+(function(){
+  var data=[["Dr. Thales Groppo",439],["Dr. Filipe Coelho",250],["Dr. Davi Macedo",75],["Dr. Samuel Lopes",39],["Dr. Arnaldo de Jesus",25,1],["Dr. Artur Sette",7]];
+  var b=document.getElementById('bars');
+  data.forEach(function(d,i){var r=document.createElement('div');r.className='bar'+(d[2]?' me':'');
+    r.innerHTML='<span class="nm">'+d[0]+'</span><div class="t"><div class="f n" style="width:'+(d[1]/439*100)+'%;transition-delay:'+(i*40)+'ms">'+d[1]+'</div></div>';b.appendChild(r);});
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide')),nav=document.querySelector('.dots');
+  slides.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.setAttribute('aria-label','Slide '+s.id.slice(1));nav.appendChild(a);});
+  var dots=nav.children;
+  if(!('IntersectionObserver' in window)||reduce){b.classList.remove('pre');}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      var i=slides.indexOf(e.target);for(var k=0;k<dots.length;k++)dots[k].classList.toggle('on',k===i);
+      if(e.target.id==='s4')b.classList.remove('pre');}})},{threshold:.5});
+    slides.forEach(function(s){io.observe(s)});
+    setTimeout(function(){b.classList.remove('pre')},4000);
+  }
+  dots[0]&&dots[0].classList.add('on');
+  document.addEventListener('keydown',function(e){
+    var cur=[].indexOf.call(dots,nav.querySelector('.on'));
+    if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();var n=slides[Math.min(cur+1,slides.length-1)];n.scrollIntoView();}
+    if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();slides[Math.max(cur-1,0)].scrollIntoView();}
+  });
+})();
+</script>
+
+</body>
+</html>
