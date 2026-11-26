@@ -94,21 +94,19 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
 @media (max-width:520px){.bar{grid-template-columns:1fr;gap:4px}.plan{grid-template-columns:auto 1fr}.plan .pill{grid-column:2;justify-self:start}.ring{width:160px;height:160px}.ring .v b{font-size:52px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.bars.pre .f{transform:none}}
 
-/* Seção de solução: virada de clima, fundo claro e acolhedor */
-.slide.sol{--bg:#faf8ff;--card:#ffffff;--card2:#ffffff;--line:#e7e2fb;--tx:#1b1838;--mut:#5c5980;--dim:#8a87a8;--okbg:#e9f9ef;--badbg:#fdecec;--brand:#6c5ce7;--brand2:#5847d8;
-  color:var(--tx);border-bottom-color:#ece8fb;
-  background:radial-gradient(1100px 520px at 12% 0%,#efe9ff 0%,rgba(239,233,255,0) 60%),radial-gradient(900px 480px at 95% 100%,#ffeadf 0%,rgba(255,234,223,0) 60%),#faf8ff}
-.slide.sol h1,.slide.sol h2,.slide.sol h3,.slide.sol h4{color:var(--tx)}
-.slide.sol .svc,.slide.sol .card{box-shadow:0 10px 30px rgba(88,71,216,.08)}
-.slide.sol .svc .k{background:#ece8ff;color:#5847d8}
-.slide.sol .svc p.fix{color:#15803d}
-.slide.sol .node{background:#fff;color:var(--tx)}
-.slide.sol .node.ok{border-color:#9fe3b8;background:#e9f9ef;color:#15803d}
-.slide.sol .node.br{border-color:#6c5ce7;background:#f1eeff;color:#5847d8}
-.slide.sol .price{background:linear-gradient(180deg,#ffffff,#f6f3ff);box-shadow:0 0 0 2px #6c5ce7,0 24px 70px rgba(108,92,231,.22)}
-.slide.sol [style*="#1d1a3a"]{background:#f1eeff!important;border-color:#d6cffb!important;color:#5847d8!important}
-.slide.sol .phone{box-shadow:0 30px 80px rgba(40,30,110,.28)}
-.slide.sol .pill{filter:none}
+/* Seção de solução: virada de clima, violeta profundo com brilho quente */
+.slide.sol{--bg:#160f33;--card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.07);--line:rgba(196,181,253,.22);--tx:#f6f3ff;--mut:#cfc6f5;--dim:#a99fd6;--okbg:rgba(34,197,94,.14);--brand:#a78bfa;--brand2:#c4b5fd;
+  color:var(--tx);border-bottom-color:rgba(196,181,253,.12);
+  background:radial-gradient(900px 520px at 10% 0%,rgba(139,92,246,.45) 0%,rgba(139,92,246,0) 62%),radial-gradient(800px 480px at 100% 100%,rgba(251,146,60,.28) 0%,rgba(251,146,60,0) 60%),linear-gradient(160deg,#1d1446 0%,#160f33 55%,#1a1236 100%)}
+.slide.sol .svc,.slide.sol .card{backdrop-filter:blur(6px);box-shadow:0 12px 34px rgba(10,5,30,.35)}
+.slide.sol .svc .k{background:rgba(167,139,250,.22);color:#ddd6fe}
+.slide.sol .svc p.fix{color:#86efac}
+.slide.sol .node{background:rgba(255,255,255,.08);color:var(--tx)}
+.slide.sol .node.ok{border-color:rgba(134,239,172,.45);background:rgba(34,197,94,.14);color:#86efac}
+.slide.sol .node.br{border-color:#a78bfa;background:rgba(167,139,250,.18);color:#ddd6fe}
+.slide.sol .price{background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(167,139,250,.10));box-shadow:0 0 0 2px #a78bfa,0 24px 80px rgba(167,139,250,.35)}
+.slide.sol [style*="#1d1a3a"]{background:rgba(167,139,250,.18)!important;border-color:rgba(196,181,253,.35)!important;color:#ddd6fe!important}
+.slide.sol .phone{box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 0 1px rgba(196,181,253,.25)}
 </style>
 
 <header class="top">
@@ -234,7 +232,7 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
   <div class="lab">A solução</div>
   <h2>O que o GRZ faz pelo Dr. Arnaldo</h2>
   <div class="grid g2" style="gap:12px">
-    <div class="svc"><span class="k">1</span><div><h4>Site profissional para o Instituto</h4><p class="fix">Mais confiança e um lugar para conhecer os tratamentos</p></div></div>
+    <div class="svc"><span class="k">1</span><div><h4>Site profissional com SEO para o Instituto</h4><p>O paciente pode nem abrir o site, mas o Google olha. Ele valoriza perfis com site e tende a mostrá-los primeiro. As palavras do perfil (cirurgia da mão, túnel do carpo, dedo em gatilho) entram no site com técnicas de SEO e reforçam a relevância do Instituto nas buscas.</p><p class="fix">Resolve: relevância do perfil para o Google</p></div></div>
     <div class="svc"><span class="k">2</span><div><h4>Google Meu Negócio reorganizado</h4><p>Categoria certa “cirurgião de mão”, WhatsApp, descrição e serviços.</p><p class="fix">Resolve: categoria genérica e sem WhatsApp</p></div></div>
     <div class="svc"><span class="k">3</span><div><h4>Link de avaliação pronto para o WhatsApp</h4><p>A equipe envia ao paciente depois da consulta.</p><p class="fix">Resolve: poucas avaliações e ritmo de 0,3/mês</p></div></div>
     <div class="svc"><span class="k">4</span><div><h4>Fotos novas no perfil, periodicamente</h4><p>Mostra ao Google e ao paciente que o perfil está vivo.</p><p class="fix">Resolve: mantém o perfil ativo e atraente</p></div></div>
