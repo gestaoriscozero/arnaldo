@@ -130,6 +130,7 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
 .steps-start li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;column-gap:12px}
 .steps-start li::before{content:counter(st);grid-row:span 2;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:800;background:rgba(167,139,250,.22);color:#ddd6fe}
 .steps-start b{font-weight:700;color:var(--tx)}.steps-start span{color:var(--mut);font-size:14px}
+.cta{text-decoration:none;cursor:pointer}.cta:hover{filter:brightness(1.08)}.cta:focus-visible{outline:2px solid #ddd6fe;outline-offset:3px}
 </style>
 
 <header class="top">
@@ -321,7 +322,7 @@ p.lead{font-size:clamp(16px,1.8vw,20px);color:var(--mut);max-width:680px}
   <div class="logo" style="justify-content:center;font-size:40px"><span class="bot" style="width:44px;height:44px"><svg width="26" height="20" viewBox="0 0 16 12"><rect x="1" y="1" width="14" height="10" rx="5" fill="#0b2a44"/><circle cx="5.5" cy="5.5" r="1.4" fill="#5ff"/><circle cx="10.5" cy="5.5" r="1.4" fill="#5ff"/><path d="M5.5 8.3q2.5 1.4 5 0" stroke="#5ff" stroke-width="1" fill="none"/></svg></span>GRZ</div>
   <p class="lead" style="margin:12px auto 0">Gestão Risco Zero · KeepCoding</p>
   <p class="hero-quote" style="font-size:clamp(26px,4.4vw,46px);margin-top:36px">Os pacientes já confiam.<br><span class="c-brand">Vamos colocar o Dr. Arnaldo em primeiro lugar?</span></p>
-  <span class="cta" role="presentation">Quero começar →</span>
+  <a class="cta" href="https://pay.keepcoding.ai/p/grz" target="_blank" rel="noopener">Quero começar →</a>
   <p class="note">Dados medidos pelo GRZ em 26/11/2026.</p>
 </div></section>
 </main>
